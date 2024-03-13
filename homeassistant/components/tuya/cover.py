@@ -85,6 +85,49 @@ COVERS: dict[str, tuple[TuyaCoverEntityDescription, ...]] = {
             device_class=CoverDeviceClass.BLIND,
         ),
     ),
+    "qt": (
+        TuyaCoverEntityDescription(
+            key=DPCode.CONTROL,
+            translation_key="curtain",
+            current_state=DPCode.SITUATION_SET,
+            current_position=(DPCode.PERCENT_CONTROL, DPCode.PERCENT_STATE),
+            set_position=DPCode.PERCENT_CONTROL,
+            device_class=CoverDeviceClass.CURTAIN,
+        ),
+        TuyaCoverEntityDescription(
+            key=DPCode.CONTROL_2,
+            translation_key="curtain_2",
+            current_position=DPCode.PERCENT_STATE_2,
+            set_position=DPCode.PERCENT_CONTROL_2,
+            device_class=CoverDeviceClass.CURTAIN,
+        ),
+        TuyaCoverEntityDescription(
+            key=DPCode.CONTROL_3,
+            translation_key="curtain_3",
+            current_position=DPCode.PERCENT_STATE_3,
+            set_position=DPCode.PERCENT_CONTROL_3,
+            device_class=CoverDeviceClass.CURTAIN,
+        ),
+        TuyaCoverEntityDescription(
+            key=DPCode.MACH_OPERATE,
+            translation_key="curtain",
+            current_position=DPCode.POSITION,
+            set_position=DPCode.POSITION,
+            device_class=CoverDeviceClass.CURTAIN,
+            open_instruction_value="FZ",
+            close_instruction_value="ZZ",
+            stop_instruction_value="STOP",
+        ),
+        # switch_1 is an undocumented code that behaves identically to control
+        # It is used by the Kogan Smart Blinds Driver
+        TuyaCoverEntityDescription(
+            key=DPCode.SWITCH_1,
+            translation_key="blind",
+            current_position=DPCode.PERCENT_CONTROL,
+            set_position=DPCode.PERCENT_CONTROL,
+            device_class=CoverDeviceClass.BLIND,
+        ),
+    ),
     # Garage Door Opener
     # https://developer.tuya.com/en/docs/iot/categoryckmkzq?id=Kaiuz0ipcboee
     "ckmkzq": (
